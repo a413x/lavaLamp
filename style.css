@@ -1,0 +1,57 @@
+svg{
+  position: absolute;
+}
+.blob{
+  position: absolute;
+  border-radius:50%;
+  transform: translateY(350px);
+}
+#main-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(135,120,164,1) 10%, rgba(110,85,133,1) 20%, rgba(96,77,122,1) 30%, rgba(80,16,112,1) 50%);
+}
+.picker{
+  position: relative;
+  left: 30%;
+}
+.border-container{
+  border: 1px solid;
+  border-radius: 20px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.5) 5%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 90%, rgba(255,255,255,0.5) 95%);
+}
+.lamp-container{
+  position: relative;
+  filter:url('#goo');
+}
+.lamp{
+  position: relative;
+  height: 350px;
+  width: 150px;
+}
+.lamp-inner-top, .lamp-inner-bottom{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 150px;
+  height: 20px;
+}
+.lamp-inner-bottom{
+  bottom: 0px;
+}
+.lamp-top,.lamp-bottom{
+  position: relative;
+  height: 80px;
+  background: linear-gradient(90deg, rgb(100,100,100) 0%, rgb(200,200,200) 10%, rgb(100,100,100) 20%, rgb(100,100,100) 80%, rgb(200,200,200) 90%, rgb(100,100,100) 100%);
+  z-index: 1;
+}
+@keyframes move {
+  50% {transform: translateY(-80px)}
+  100% {transform: translateY(350px)}
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/verte@0.0.12/dist/verte.css">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+    <div id="main-container">
+      <div class="picker">
+        <verte v-model="color" picker="wheel" model="rgb"></verte>
+      </div>
+      <div class="border-container">
+        <div class="lamp-container">
+          <div class="lamp-top"></div>
+          <div class="lamp">
+            <div class="lamp-inner-top" :style="{background: color}"></div>
+            <div class="blob" v-for='blob in blobs'
+              :style="{width:blob.w, height:blob.h,
+              left:blob.left,
+              animation:'move ' + blob.animTime + ' linear infinite',
+              background: color}"></div>
+            <div class="lamp-inner-bottom" :style="{background: color}"></div>
+          </div>
+          <div class="lamp-bottom"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script type="text/javascript" src='https://unpkg.com/verte@0.0.12/dist/verte.min.js'></script>
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>
